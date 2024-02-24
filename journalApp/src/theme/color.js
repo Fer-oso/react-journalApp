@@ -8,7 +8,7 @@ export const colorTheme = createTheme({
         second: grey[400]
       },
       secondary:{
-        main: grey[400]
+        main: grey[900]
       },
       error:{
         main: red.A400
