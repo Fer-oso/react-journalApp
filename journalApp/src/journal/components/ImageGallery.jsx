@@ -1,9 +1,9 @@
-import { Box, Container, ImageList, ImageListItem } from '@mui/material'
+import {ImageList, ImageListItem } from '@mui/material'
 import React from 'react'
 
 export const ImageGallery = () => {
   return (
-    <ImageList sx={{ width: '100%', height: 300 }} cols={4} rowHeight={100}>
+    <ImageList sx={{ width: '100%', height: 300 }} cols={4} rowHeight={300}>
     {itemData.map((item) => (
       <ImageListItem key={item.img}>
         <img
