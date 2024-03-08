@@ -13,10 +13,14 @@ export const Login = () => {
 
   const dispatch = useDispatch();
 
-  const { formState, onInputChange } = useForm({
-    email: 'tygcloths@gmail.com',
-    password: '123456'
-  });
+  const formData ={
+    email: '',
+    password: ''
+  }
+
+  const { formState, onInputChange } = useForm(
+    formData
+  );
 
   const isAuthenticated = useMemo(() => status === 'checking', [status])
 
