@@ -4,45 +4,37 @@ export const journalSlice = createSlice({
   name: "journal",
   initialState: {
     isSaving: false,
-    savedMessage: "",
-    notes: [],
+    message: "",
     activeNote: null,
   },
   reducers: {
-    addNewEmptyNote: (state, action) => {
-        state.isSaving = false;
-        state.notes.push(action.payload)
-    },
-
-    savingNewNote: (state) =>{
-        state.isSaving = true
-    },
 
     setActiveNote: (state, action) => {
-        state.activeNote = action.payload
-
+      state.isSaving = false;
+      state.activeNote = action.payload;
+      state.message = "";
     },
 
-    setNotes: (state, action) => {
-
-        state.notes = action.payload
-
+    setSaving: (state) => {
+      state.isSaving = true;
     },
 
-    setSaving: (state) => {},
+    messageNoteUpdated: (state) => {
+      state.message = "Note Updated Successfully 😊";
+      state.isSaving = false;
+    },
 
-    updateNote: (state, action) => {},
+    setImagesInActiveNote: (state,action) =>{
+        state.activeNote.images = [...state.activeNote.images, ...action.payload];
+        state.isSaving = false;
+    },
 
-    deleteNoteById: (state, action) => {},
   },
 });
 
 export const {
-  addNewEmptyNote,
-  savingNewNote,
   setActiveNote,
-  setNotes,
   setSaving,
-  updateNote,
-  deleteNoteById,
+  messageNoteUpdated,
+  setImagesInActiveNote,
 } = journalSlice.actions;

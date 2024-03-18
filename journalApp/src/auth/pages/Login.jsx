@@ -7,16 +7,17 @@ import { useForm } from "../../hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
 import { startGoogleSignIn, startLoginWithEmailPassword } from "../../store/authentication/thunks";
 
+
+ const formData = {
+   email: "",
+   password: "",
+ };
+
 export const Login = () => {
 
   const { status, error } = useSelector(state => state.authentication);
 
   const dispatch = useDispatch();
-
-  const formData ={
-    email: '',
-    password: ''
-  }
 
   const { formState, onInputChange } = useForm(
     formData
